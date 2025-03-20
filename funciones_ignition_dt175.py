@@ -99,3 +99,6 @@ def show_3d_map(results):
     ))
     fig.update_traces(contours_z=dict(show=True, usecolormap=True))
     st.plotly_chart(fig, use_container_width=True)
+
+
+
