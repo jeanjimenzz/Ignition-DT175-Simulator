@@ -99,5 +99,5 @@ def show_3d_map(results):
         bgcolor="rgba(0,0,0,0)"
     ))
     fig.update_traces(contours_z=dict(show=True, usecolormap=True))
-    st.plotly_chart(fig, use_container_width=True)
+   return fig
 
