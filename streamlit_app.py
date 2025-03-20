@@ -5,8 +5,6 @@ from matplotlib.animation import FuncAnimation
 import plotly.graph_objects as go
 import time
 from fpdf import FPDF
-import base64
-import
 
 st.set_page_config(page_title="Ignition Master DT175", layout="wide")
 
