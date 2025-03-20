@@ -80,7 +80,7 @@ if st.sidebar.button("Ejecutar simulación integral"):
         recommendations = generate_recommendations(results)
         st.info(recommendations)
 
-        show_3d_map(results)
+        fig3d = show_3d_map(results)
         st.plotly_chart(fig3d, use_container_width=True)
 
 st.markdown("---")
