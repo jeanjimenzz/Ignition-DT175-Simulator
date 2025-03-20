@@ -95,9 +95,11 @@ def generate_recommendations(results):
 def show_3d_map(results):
     fig = go.Figure(data=[go.Surface(z=[results['advance_values']], x=[results['rpm_range']], y=[results['temp_culata']])])
     fig.update_layout(title='Mapa 3D de Avance de Encendido', scene=dict(
-        xaxis_title='RPM', yaxis_title='Temperatura de Culata (°C)', zaxis_title='Avance (°)',
+        xaxis_title='RPM',
+        yaxis_title='Temperatura de Culata (°C)',
+        zaxis_title='Avance (°)',
         bgcolor="rgba(0,0,0,0)"
     ))
     fig.update_traces(contours_z=dict(show=True, usecolormap=True))
-   return fig
+    return fig
 
