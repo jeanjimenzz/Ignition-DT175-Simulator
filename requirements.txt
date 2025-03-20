@@ -1,11 +1,8 @@
 numpy
-streamlit
 matplotlib
 plotly
-fpdf
-scipy
+streamlit
 pandas
-soundfile
+scipy
 pygame
-scikit-learn
-base64
+fpdf
