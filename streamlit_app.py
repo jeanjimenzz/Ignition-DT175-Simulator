@@ -60,7 +60,7 @@ aguja_aire = st.sidebar.slider("Vueltas aguja de aire", 1, 4, 2)
 
 rpm_range = np.linspace(1500, 10000, 100)
 
-from funciones_ignition_dt175.py import simulate_ignition_advance, generate_recommendations, show_3d_map
+from funciones_ignition_dt175 import simulate_ignition_advance, generate_recommendations, show_3d_map
 
 if st.sidebar.button("Ejecutar simulación integral"):
     with st.spinner("Ejecutando cálculos precisos..."):
