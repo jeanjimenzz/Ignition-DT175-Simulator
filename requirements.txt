@@ -1,5 +1,7 @@
-streamlit
 numpy
+streamlit
 matplotlib
 plotly
 fpdf
+scipy
+base64
