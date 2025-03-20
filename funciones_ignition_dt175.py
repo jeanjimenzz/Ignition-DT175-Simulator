@@ -93,13 +93,12 @@ def generate_recommendations(results):
 
 
 def show_3d_map(results):
-   rpm = np.array(results['rpm_range'])
+    rpm = np.array(results['rpm_range'])
     temp_culata = np.array(results['temp_culata'])
     advance_values = np.array(results['advance_values'])
 
-    # Crear una malla a partir de las combinaciones de rpm y temp_culata
     rpm_grid, temp_grid = np.meshgrid(rpm, temp_culata)
-    z_grid = np.tile(advance_values, (len(temp_culata), 1))  # Repite los valores de avance a lo largo del eje Y
+    z_grid = np.tile(advance_values, (len(temp_culata), 1))  # Repetir el avance en cada fila
 
     fig = go.Figure(data=[go.Surface(z=z_grid, x=rpm_grid, y=temp_grid)])
     fig.update_layout(title='Mapa 3D de Avance de Encendido', scene=dict(
