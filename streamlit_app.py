@@ -81,6 +81,7 @@ if st.sidebar.button("Ejecutar simulación integral"):
         st.info(recommendations)
 
         show_3d_map(results)
+        st.plotly_chart(fig3d, use_container_width=True)
 
 st.markdown("---")
 st.caption("Desarrollado por Jean Pablo — Proyecto Integral DT175 Pro, sin simplificaciones.")
