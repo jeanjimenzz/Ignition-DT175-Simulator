@@ -4,3 +4,4 @@ matplotlib
 plotly
 fpdf
 scipy
+pandas
