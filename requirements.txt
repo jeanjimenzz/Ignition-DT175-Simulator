@@ -4,8 +4,8 @@ matplotlib
 plotly
 fpdf
 scipy
-base64
 pandas
 soundfile
 pygame
 scikit-learn
+base64
