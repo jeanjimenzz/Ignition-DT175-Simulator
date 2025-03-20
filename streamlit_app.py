@@ -1,13 +1,15 @@
-
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 import plotly.graph_objects as go
 import time
+from fpdf import FPDF
 import base64
 
 st.set_page_config(page_title="Ignition Master DT175", layout="wide")
 
+# Animación de bienvenida y efecto sonoro con experiencia completa
 def play_startup_sound():
     with open("engine_start.mp3", "rb") as sound_file:
         sound_bytes = sound_file.read()
@@ -18,7 +20,23 @@ def play_startup_sound():
     </audio>
     """, unsafe_allow_html=True)
 
-from funciones_ignition_dt175 import simulate_ignition_advance, generate_recommendations, show_3d_map
+st.markdown("""
+    <style>
+    .main {
+        background-color: #1c1c1c;
+        color: #f0f0f0;
+        font-family: 'Helvetica', sans-serif;
+    }
+    h1, h2, h3 {
+        color: #ffcc00;
+    }
+    .stButton button {
+        background-color: #ffcc00;
+        color: black;
+        border-radius: 10px;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 st.title("🏁 IGNITION MASTER SYSTEM - DT175 PRO")
 play_startup_sound()
@@ -43,8 +61,10 @@ aguja_aire = st.sidebar.slider("Vueltas aguja de aire", 1, 4, 2)
 
 rpm_range = np.linspace(1500, 10000, 100)
 
+from funciones_ignition_dt175 import simulate_ignition_advance, generate_recommendations, show_3d_map
+
 if st.sidebar.button("Ejecutar simulación integral"):
-    with st.spinner("Ejecutando cálculos precisos y generando recomendaciones..."):
+    with st.spinner("Ejecutando cálculos precisos..."):
         results = simulate_ignition_advance(
             rpm_range, 1000, temp_pista, temp_ambiente, humedad_relativa, carga_motor,
             diametro_carb, diametro_admision, diametro_escape, cubicaje_cupula, bujia_grado,
@@ -61,8 +81,7 @@ if st.sidebar.button("Ejecutar simulación integral"):
         recommendations = generate_recommendations(results)
         st.info(recommendations)
 
-        fig3d = show_3d_map(results)
-        st.plotly_chart(fig3d, use_container_width=True)
+        show_3d_map(results)
 
 st.markdown("---")
-st.caption("Desarrollado por Jean Pablo — Proyecto Integral DT175 Pro, versión extendida.")
+st.caption("Desarrollado por Jean Pablo — Proyecto Integral DT175 Pro, sin simplificaciones.")
