@@ -1,7 +1,8 @@
-numpy
-streamlit
-matplotlib
-plotly
-fpdf
-scipy
-base64
+# numpy
+# streamlit
+# matplotlib
+# plotly
+# fpdf
+# scipy
+# base64
+# pandas
