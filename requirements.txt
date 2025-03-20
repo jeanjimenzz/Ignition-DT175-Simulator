@@ -1,8 +1,5 @@
+streamlit
 numpy
 matplotlib
 plotly
-streamlit
-pandas
-scipy
-pygame
 fpdf
