@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+import streamlit as st
 
 # Función principal para simular el avance de encendido y métricas del motor
 def simulate_ignition_advance(rpm_range, track_length, temp_pista, temp_ambiente, humedad_relativa, carga_motor,
@@ -34,7 +35,7 @@ def simulate_ignition_advance(rpm_range, track_length, temp_pista, temp_ambiente
                                                tipo_mufla, diametro_panza_mufla, boquilla_alta, boquilla_baja, aguja_aire)
         advance_values.append(advance)
 
-    return {'rpm_range': rpm_range, 'speed_range': speed_range, 'temp_culata': temp_culata, 'advance_values': advance_values}
+    return {'rpm_range': rpm_range.tolist(), 'speed_range': speed_range.tolist(), 'temp_culata': temp_culata.tolist(), 'advance_values': advance_values}
 
 
 def ignition_advance_calculation(rpm, temp_culata, temp_pista, carga_motor, diametro_carb, diametro_admision,
@@ -98,6 +99,5 @@ def show_3d_map(results):
         bgcolor="rgba(0,0,0,0)"
     ))
     fig.update_traces(contours_z=dict(show=True, usecolormap=True))
-    return fig
-
+    st.plotly_chart(fig, use_container_width=True)
 
