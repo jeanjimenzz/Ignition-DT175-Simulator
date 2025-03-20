@@ -108,4 +108,8 @@ def show_3d_map(results):
         bgcolor="rgba(0,0,0,0)"
     ))
     fig.update_traces(contours_z=dict(show=True, usecolormap=True))
+  print("Forma de rpm_grid:", rpm_grid.shape)
+  print("Forma de temp_grid:", temp_grid.shape)
+  print("Forma de z_grid (advance_values):", z_grid.shape)
+
     return fig
